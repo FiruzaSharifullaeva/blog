@@ -36,7 +36,7 @@ gem 'capistrano', ">=3.10"
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
-gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
+gem 'capistrano-passenger'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
