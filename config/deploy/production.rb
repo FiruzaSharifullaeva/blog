@@ -7,7 +7,11 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+server '5.22.148.227', user: 'firuza', roles: %w{app web}
 
+role :app, %w{firuza@5.22.148.227}
+role :web, %w{firuza@5.22.148.227}
+role :db,  %w{firuza@5.22.148.227}
 
 # role-based syntax
 # ==================
@@ -20,15 +24,7 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-set :stage, :production
 
-role :app, %w{firuza@5.22.148.227}
-role :web, %w{firuza@5.22.148.227}
-role :db,  %w{firuza@5.22.148.227}
-
-server '5.22.148.227', user: 'firuza', roles: %w{web app db}
-
-#set :branch, ENV["REVISION"] || ENV["BRANCH_NAME"] || "master"
 
 
 # Configuration
@@ -49,21 +45,22 @@ server '5.22.148.227', user: 'firuza', roles: %w{web app db}
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+  set :ssh_options, {
+    keys: %w(~/.ssh/id_rsa),
+    forward_agent: true,
+    auth_methods: %w(publickey),
+    user: 'firuza'
+  }
 #
 # The server-based syntax can be used to override options:
-## ------------------------------------
-# server "5.22.148.227",
-# user: "firuza",
-# roles: %w{web app}
+# ------------------------------------
+# server "example.com",
+#   user: "user_name",
+#   roles: %w{web app},
 #   ssh_options: {
-#     user: "firuza", # overrides user setting above
-#     keys: %w(/home/firuza/.ssh/id_rsa),
+#     user: "user_name", # overrides user setting above
+#     keys: %w(/home/user_name/.ssh/id_rsa),
 #     forward_agent: false,
-#     auth_methods: %w(publickey)
-#     password: "please use keys"
+#     auth_methods: %w(publickey password)
+#     # password: "please use keys"
 #   }

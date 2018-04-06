@@ -6,8 +6,9 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-
-
+#server "5.22.148.227", :app, :web, :db, :primary => true
+#set :deploy_to, "/home/firuza/blog_staging"
+server '5.22.148.227', user: 'firuza', roles: %w{web app db}
 
 # role-based syntax
 # ==================

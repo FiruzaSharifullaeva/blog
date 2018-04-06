@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  "https://github.com/FiruzaSharifullaeva/blog.git"
 end
 
 
@@ -32,10 +32,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#gem 'capistrano', ">=3.10"
+gem 'capistrano', ">=3.10"
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-rbenv'
+gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -51,7 +52,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'capistrano'
+#  gem 'capistrano'
 # rails specific capistrano funcitons
 # gem 'capistrano-rails', '~> 1.1.0'
 
